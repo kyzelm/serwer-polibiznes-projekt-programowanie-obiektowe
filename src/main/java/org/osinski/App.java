@@ -1,0 +1,7 @@
+package org.osinski;
+
+public class App {
+    public static void main(String[] args) {
+
+    }
+}
