@@ -7,6 +7,9 @@ import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.Objects;
 
+/**
+ * Serwer gry obsługujący logikę gry Polibiznes.
+ */
 public class App {
     private static String[][] gameData;
 
@@ -20,6 +23,11 @@ public class App {
     private static int actualPlayer = 1;
     private static int loses = 0;
 
+    /**
+     * Metoda główna serwera gry.
+     *
+     * @param args argumenty wywołania programu
+     */
     public static void main(String[] args) {
         reset();
 
@@ -381,6 +389,12 @@ public class App {
         }
     }
 
+    /**
+     * Metoda wysyłająca dane do klienta.
+     *
+     * @param playerId identyfikator gracza
+     * @throws UnknownHostException wyjątek rzucany w przypadku nieznanej nazwy hosta
+     */
     public static void send(int playerId) throws UnknownHostException {
         String message = "";
         for (String[] playerData : gameData) {
@@ -411,6 +425,9 @@ public class App {
         }
     }
 
+    /**
+     * Metoda resetująca stan gry.
+     */
     private static void reset() {
         for (int i = 1; i < 5; i++) {
             playerCount = 0;
@@ -577,7 +594,7 @@ public class App {
                     {   // field 25
                             "Zajęcia dyplomowe", // [29][0] - name
                             "550", // [29][1] - price
-                            "x",
+                            "x", // [29][2] - owner
                     },
                     {   // field 26
                             "Praca inżynierska", // [30][0] - name
